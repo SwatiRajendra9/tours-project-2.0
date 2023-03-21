@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import App from './App.css';
+import './App.css';
 import axios from "axios";
 
-let toursArray=[];
+
 
 
 function Tours_useeffect() {
@@ -22,7 +22,7 @@ function Tours_useeffect() {
   }) 
   
   .then((response) => {
-    if(gotResponse == false) {
+    if(gotResponse === false) {
       setToursArray(response.data);
       setGotResponse(true);
     }
@@ -41,7 +41,7 @@ function Tours_useeffect() {
           showDivArray[index] ?
           <div id='tour-package'>
               
-              <img id='image' src={element.image}></img>
+              <img id='image' src={element.image} alt={''}></img>
               <div id='price'>{element.price}</div>
               <div id='name'>{element.name}</div>
               <div id='info'>{slicedInfo ? element.info.slice(0,300) : element.info}
@@ -60,7 +60,7 @@ function Tours_useeffect() {
   )
 
   function toggle() {
-    if(slicedInfo == true) {
+    if(slicedInfo === true) {
         readMoreInfo(slicedInfo=false);
     }
     else {
@@ -72,12 +72,12 @@ function Tours_useeffect() {
     let arr=[];
     arr = [...showDivArray];
     console.log(showDivArray);
-    if(showDivArray[pos] == true) {
+    if(showDivArray[pos] === true) {
       arr[pos] = false;
       console.log(showDivArray)
       setShowDivArray(arr);
     }
-    if(pos==4) {
+    if(pos===4) {
       setShowRefreshButton(true);
     }
     
